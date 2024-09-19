@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Question Detail</h1>
+    <p>Title: {{ question.title }}</p>
+    <p>Body: {{ question.body }}</p>
+    <p>Created on: {{ question.created_at }}</p>
+    <p>Last updated on: {{ question.updated_at }}</p>
+    <p>Votes: {{ question.votes }}</p>
+    <p>Author: {{ question.user.first_name }} {{ question.user.last_name }}</p>
+    <p>Tags:
+        {% for tag in question.tags.all %}
+            {{ tag.name }}
+            {% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </p>
+
+    <form method="post" action="{% url 'questions:question_upvote' question.id %}">
+        {% csrf_token %}
+        <button type="submit">Upvote</button>
+    </form>
+    <form method="post" action="{% url 'questions:question_downvote' question.id %}">
+        {% csrf_token %}
+        <button type="submit">Downvote</button>
+    </form>
+    <a href="{% url 'questions:question_update' question.id %}">Edit Question</a>
+    <br><br><br>
+    <h2>Answers:</h2>
+    {% for answer in question.answers.all|dictsortreversed:"created_at" %}
+        <br>
+        <br>
+        <div class="answer">
+            <p>Answer: {{ answer.body }}</p>
+            <p>Created on: {{ answer.created_at }}</p>
+            <p>Last updated on: {{ answer.updated_at }}</p>
+            <p>Author: {{ answer.user.username }}</p>
+            <p>Votes: {{ answer.votes }}</p>
+
+            <form method="post" action="{% url 'questions:answer_upvote' answer.id %}">
+                {% csrf_token %}
+                <button type="submit">upvote</button>
+            </form>
+            <form method="post" action="{% url 'questions:answer_downvote' answer.id %}">
+                {% csrf_token %}
+                <button type="submit">downvote</button>
+            </form>
+        </div>
+    {% endfor %}
+{% endblock %}

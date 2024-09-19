@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block title %}آناناس فروشی آقای زحمتکش{% endblock title %}
+
+<!-- Add your Content Here -->
+{% block content %}
+    <ul>
+        {% for pineapple in pineapples %}
+            <li>{{ pineapple.price_toman }}</li>
+            <li>{{ pineapple.seller.certificate_code }}</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

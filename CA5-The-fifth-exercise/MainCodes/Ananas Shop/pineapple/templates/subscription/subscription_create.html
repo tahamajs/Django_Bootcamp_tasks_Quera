@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+ثبت نام در خبرنامه
+{% endblock title %}
+
+<!-- Add your Content Here -->
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" >ثبت نام</button>
+    </form>
+{% endblock content %}

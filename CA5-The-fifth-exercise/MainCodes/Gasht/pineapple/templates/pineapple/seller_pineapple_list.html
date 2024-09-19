@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}آناناس های فروشنده{% endblock title %}
+
+<!-- Add your Content Here -->
+{% block content %}
+    <h1>{{ seller.certificate_code }}</h1>
+    <ul>
+        {% for pineapple in pineapples %}
+            <li>{{ pineapple.price_toman }}</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

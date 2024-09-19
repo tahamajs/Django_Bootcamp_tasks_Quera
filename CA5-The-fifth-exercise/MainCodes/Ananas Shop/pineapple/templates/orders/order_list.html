@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}لیست سفارشات{% endblock title %}
+
+<!-- Add your Content Here -->
+{% block content %}
+     <ul>
+        {% for order in orders %}
+            <li>
+                {{ order.name}}<br>
+                {{ order.pineapple.seller.name }}<br>
+                {{ order.weight_kg}}<br>
+                {% widthratio order.weight_kg 1 order.pineapple.price_toman %}
+
+{#                {{ order.weight_kg|widthratio:1:order.pineapple.price_toman }}>#}
+
+
+
+
+            </li>
+        {% endfor %}
+{% endblock content %}

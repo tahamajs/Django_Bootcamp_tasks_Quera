@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}ساخت فروشنده آناناس{% endblock title %}
+
+
+
+{% block content %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Create Seller</button>
+    </form>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+لیست خبرنامه
+{% endblock title %}
+
+<!-- Add your Content Here -->
+{% block content %}
+    <ul>
+        {% for subscription in subscriptions %}
+            <li>{{ subscription.name}}</li>
+            <li>{{ subscription.phone_number}}</li>
+        {% endfor %}
+{% endblock content %}

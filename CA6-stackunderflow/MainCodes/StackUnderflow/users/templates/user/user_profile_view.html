@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1> User Details </h1>
+    Username : {{ user.username }}<br>
+    UserEmail : {{ user.email }}<br>
+    UserPhoneNumber : {{ user.phone_number }}<br>
+    User NationalId :{{ user.national_id }}<br>
+    UserIsActive : {{ user.is_active }}<br>
+    User Question Downwots :
+    {% for answer in user.downvoted_answers.all %}
+        <br>{{ answer.body }}<br>
+    {% endfor %}
+
+    User Question Upvoted :
+    {% for answer in user.upvoted_answers.all %}
+        <br>{{ answer.body }}<br>
+    {% endfor %}
+{% endblock %}

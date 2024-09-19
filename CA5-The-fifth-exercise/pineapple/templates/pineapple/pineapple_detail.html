@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}صفحه‌ی داخلی آناناس{% endblock title %}
+
+<!-- Add your Content Here -->
+{% block content %}
+    <ul>
+        <li>{{ pineapple.price_toman }}</li>
+        <li>{{ pineapple.seller.certificate_code }}</li>
+    </ul>
+{% endblock content %}

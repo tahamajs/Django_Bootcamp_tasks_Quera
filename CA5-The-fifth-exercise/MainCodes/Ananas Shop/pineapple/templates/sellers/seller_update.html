@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}بروزرسانی فروشنده{% endblock title %}
+
+<!-- Add your Content Here -->
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">بروزرسانی</button>
+    </form>
+{% endblock content %}

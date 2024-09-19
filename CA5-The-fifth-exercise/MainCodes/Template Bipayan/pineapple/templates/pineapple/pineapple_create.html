@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}ساخت آناناس جدید{% endblock title %}
+
+<!-- Add your Content Here -->
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Create Order</button>
+    </form>
+{% endblock content %}

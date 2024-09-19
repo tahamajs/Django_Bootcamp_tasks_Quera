@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}لیست نظرات فروشنده{% endblock title %}
+
+<!-- Add your Content Here -->
+
+{% block content %}
+    <ul>
+        {% for comment in comments %}
+            <li>
+            {{ comment.name }}<br>
+            {{ comment.seller.name }}<br>
+            {{ comment.text }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

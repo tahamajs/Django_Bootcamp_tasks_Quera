@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Question Lists</h1> <br>
+    {% for question in questions %}
+        Title: {{ question.title }} <br>
+        UserName: {{ question.user.username }} <br>
+        Time: {{ question.created_at }} <br>
+        <br>
+    {% endfor %}
+
+{% endblock %}

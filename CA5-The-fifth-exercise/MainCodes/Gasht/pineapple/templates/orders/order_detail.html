@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    صفحه داخلی سفارش
+{% endblock title %}
+
+
+{% block content %}
+    {{ order.name }}<br>
+    {{ order.pineapple.seller.name}}<br>
+    {{ order.weight_kg }}<br>
+    {% widthratio order.weight_kg 1 order.pineapple.price_toman %}
+{% endblock content %}
